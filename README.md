@@ -24,4 +24,4 @@ This is a simple booking form built with Bootstrap, enhanced with JavaScript fun
 
 ## View the Booking Form here 
 
-[Made using Code Pen, and you can view it here to!](https://codepen.io/Jiana-Kambo/pen/gOyLaRY)
+Made using Code Pen, and [you can view it here to!](https://codepen.io/Jiana-Kambo/pen/gOyLaRY)
