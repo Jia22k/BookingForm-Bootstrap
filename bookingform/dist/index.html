@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - BookingForm</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+
+<head>
+  <title>Bootstrap Booking Form</title>
+  <meta charset="utf-8">
+
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <!-- FontAwesome-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Toastr-->
+  <link rel='stylesheet' 
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <!-- Moment JS-->
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
+  <script src="./script.js"></script>
+
+  <style>
+    /* Custom CSS */
+    .custom-border {
+      border: 2px solid #247EC7;
+      /* Blue border */
+      border-radius: 5px;
+      /* Rounded corners */
+    }
+
+    .custom-background {
+      background-color: #247EC7;
+      /* Blue background color */
+      color: white;
+      /* Text color */
+    }
+
+    .user-section {
+      margin-bottom: 20px;
+      /* Add margin to create space between user and username */
+    }
+
+    .container {
+      margin-left: 20px;
+       !important margin-right: 20px;
+       !important
+    }
+
+    .line {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 20px 0;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Heading and SubHeading -->
+  <h1 style="color:red;">Bootstrap Booking Form</h1>
+  <div class="well">Fill out the form and click the submit button when complete...</div>
+  <!-- Starting on the two Columns -->
+  <form id="BookForm">
+    <div class="row gx-5">
+      <div class="col-md-6 rounded ">
+        <div class="panel custom-border rounded">
+          <div class="panel-heading custom-background"> User: </div>
+          <div class="panel-body">
+            <form class=“form-horizontal” role=“form>
+              <div class="form-group">
+              <label class="col-md-2">
+                Username:
+              </label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="Type username..." id="username">
+              </div>
+                </div>
+              <div class="form-group">
+              <label class="col-md-2">
+                First Name:
+              </label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="Type First Name..." id="firstName">
+              </div>
+                </div>
+              <div class="form-group">
+              <label class="col-md-2">
+                Last Name:
+              </label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" placeholder="Type Last Name..." id="lastName">
+              </div>
+                </div>
+            </form>
+          
+          </div>
+        </div>
+
+        <div class="panel custom-border rounded">
+          <div class="panel-heading custom-background"> Contact:</div>
+
+          <div class="panel-body">
+            <!-- Phone one -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-phone">&nbsp</i></span>
+              <input type="text" class="form-control" id="phoneNumber" placeholder="Type phone#...">
+            </div>
+
+            <!-- Fax one -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-fax"></i></span>
+              <input type="text" class="form-control" id="faxNumber" placeholder="Type fax#...">
+
+            </div>
+
+            <!-- Email one -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+              <input type="text" class="form-control" id="email" placeholder="Type email...">
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="panel custom-border rounded">
+          <div class="panel-heading custom-background"> Schedule:</div>
+
+          <div class="panel-body" id="manutd">
+            <p style="font-weight: bold">Adults:</p>
+
+            <input class="form-control" type="number" id="adults" name="adults" value="1" min="1"><br>
+            
+            <div class="row pb-3">
+              <div class="col-md-6 py-3 px-3 mt-md-3 ">
+                <label for="checkin"><b>Check-In:</b></label><br>
+                <input class="form-control" type="date" id="checkin" name="checkin">
+                <div>
+                  <label for="days"><b>Days:</b></label><br>
+                  <input class="lightgrey form-control" type="text" name="daysDisplay" id="days" placeholder="Displays days..." readonly>
+                </div>
+              </div>
+              <div class="col-md-6 py-3 px-3 mt-md-3 ">
+                <label for="checkout"><b>Check-Out:</b></label><br>
+                <input class="form-control" type="date" id="checkout" name="checkout">
+                <div>
+                  <label for="Cost"><b>Cost:</b></label><br>
+                  <input class="lightgrey form-control" type="text" name="costCalc" id="Cost" placeholder="Displays cost..." readonly>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel custom-border rounded">
+          <div class="panel-heading custom-background"> Other: </div>
+          <div class="panel-body">
+            <p style="font-weight : bold">Message:</p>
+            <textarea class="form-control" type="text" id = message placeholder="Type message here..." rows="20"></textarea>
+            <p style="font-weight: bold"> Range:</p>
+            <input type="range" min="1" max="100" class="custom-background" style="color:#247EC7; background-color:#247EC7;" value="50" id="Frange" step="2"> <br>
+            <p style="font-weight:bold;">Priority:</p>
+
+            <input type="radio" id="lowPriority" name="priority" value="low" checked>
+            <label for="lowPriority">Low</label>
+
+            <input type="radio" id="medPriority" name="priority" value="med">
+            <label for="medPriority">Medium</label>
+
+            <input type="radio" id="highPriority" name="priority" value="high">
+            <label for="highPriority">High</label>
+
+          </div>
+        </div>
+
+      </div>
+      
+      <hr>
+
+      <div class="row gx-3">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+
+          <div class=row>
+            <div class="col-md-6">
+              
+              <button type="button" class="btn btn-success btn-block px-5" id="submit-button" style=" background-color: Green; color:White;"><i class="fa fa-paper-plane"></i> Submit</button>
+
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary btn-block px-5" id="reset-button" style=" color:White"><i class="fa fa-eraser"></i> Reset</button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
